@@ -1,0 +1,24 @@
+import java.util.*;
+public class Backtracking {
+// ----------------------Key pad Letter Combination---------------------------
+    static String letter[] = { "", "", "abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"};
+
+    public static void possiblewords(String s,String ans){
+        if(s.length() == 0){
+            System.out.println(ans);
+            return;
+        }
+         String key = letter[s.charAt(0)-48];
+
+         for(int i=0;i<key.length();i++){
+            possiblewords(s.substring(1), ans+key.charAt(i));
+         }
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String str = sc.next();
+        possiblewords(str,"");
+        sc.close();
+
+    }
+}
